@@ -1,9 +1,15 @@
-<div>
+<div class="container">
   <header>
-    <h1>Sistema Alunos Proway</h1>
+    <h1>{{ titulo }}</h1>
   </header>
   
   <main>
-    <app-student></app-student>
+    <app-student [aluno]="listaAlunos[0]" [escola]="escola"></app-student>
+    <app-student [aluno]="listaAlunos[1]" [escola]="escola"></app-student>
+    <app-student [aluno]="listaAlunos[2]" [escola]="escola"></app-student>
   </main>
+
+  <footer>
+    <p>- Desenvolvido por Proway -</p>
+  </footer>
 </div>

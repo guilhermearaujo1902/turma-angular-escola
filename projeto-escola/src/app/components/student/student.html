@@ -1,12 +1,19 @@
-<div>
-    <h2>Dados do aluno</h2>
+<div class="card">
+    <img src="assets/{{aluno.imagem}}" alt="">
+    <h2>{{ aluno.nome }}</h2>
     <p>
-        <strong>Código:</strong> 07
+        <strong>Matrícula:</strong> {{ aluno.matricula }}
     </p>
     <p>
-        <strong>Nome:</strong> Guilherme
+        <strong>Curso:</strong> {{ aluno.curso }}
     </p>
     <p>
-        <strong>Curso:</strong> Angular
+        <strong>Matérias: </strong> {{ aluno.materias }}
+    </p>
+    <p>
+        <strong>Email:</strong> {{ aluno.email }}
+    </p>
+    <p class="mt-16 txt-center">
+        {{ escola.nome }} - {{ escola.cidade }}
     </p>
 </div>

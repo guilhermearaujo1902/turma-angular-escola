@@ -1,3 +1,26 @@
-h1 {
-    margin-bottom: 16px;
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: #263766;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+}
+
+main {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 16px;
+}
+
+p {
+    font-size: 12px;
 }

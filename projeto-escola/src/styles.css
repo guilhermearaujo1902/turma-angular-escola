@@ -5,3 +5,14 @@
     box-sizing: border-box;
     font-family: Calibri, sans-serif;
 }
+
+/* Espaçamentos */
+.mt-16 {
+    margin-top: 16px;
+}
+
+
+/* Alinhamentos */
+.txt-center {
+    text-align: center;
+}
