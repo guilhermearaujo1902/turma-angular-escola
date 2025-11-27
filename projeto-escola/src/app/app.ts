@@ -22,7 +22,8 @@ export class App {
       curso: 'Frontend',
       email: 'harry@proway.com',
       materias: ['HTML', 'CSS'],
-      imagem: 'harry.png'
+      imagem: 'harry.png',
+      situacao: false
     }, 
     {
       nome: 'Hermione',
@@ -30,7 +31,8 @@ export class App {
       curso: 'Backend',
       email: 'hermione@proway.com',
       materias: ['Java', 'PostgreSql'],
-      imagem: 'hermione.png'
+      imagem: 'hermione.png',
+      situacao: true
     },
     {
       nome: 'Rony',
@@ -38,7 +40,8 @@ export class App {
       curso: 'Dados',
       email: 'rony@proway.com',
       materias: ['Python', 'BI'],
-      imagem: 'rony.png'
+      imagem: 'rony.png',
+      situacao: false
     }
   ]
 }

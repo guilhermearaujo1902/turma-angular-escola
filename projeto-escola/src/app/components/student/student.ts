@@ -11,4 +11,6 @@ export class Student {
   @Input() aluno!: any
   @Input() escola!: any
 
+  textoDestaque: string = '20px'
+
 }

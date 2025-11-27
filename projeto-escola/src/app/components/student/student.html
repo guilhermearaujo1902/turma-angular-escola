@@ -13,7 +13,12 @@
     <p>
         <strong>Email:</strong> {{ aluno.email }}
     </p>
-    <p class="mt-16 txt-center">
+
+    <div class="aprovacao" [ngClass]="aluno.situacao ? 'aprovado' : 'reprovado'">
+        <p>Aluno {{ aluno.situacao ? 'Aprovado' : 'Reprovado' }}</p>
+    </div>
+
+    <p class="mt-16 txt-center" [ngStyle]="{ 'font-size' : textoDestaque }">
         {{ escola.nome }} - {{ escola.cidade }}
     </p>
 </div>
