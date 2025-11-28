@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IAluno } from './interfaces/IAluno';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,16 @@ import { Component } from '@angular/core';
 })
 export class App {
 
-  titulo = 'Sistema Alunos Proway';
+  titulo: string = 'Sistema Alunos Proway'
+
+  exibicao: string = 'cards'
 
   escola = {
     nome: 'Proway',
     cidade: 'Blumenau'
   }
 
-  listaAlunos = [
+  listaAlunos: IAluno[] = [
     {
       nome: 'Harry',
       matricula: 111,
@@ -44,4 +47,13 @@ export class App {
       situacao: false
     }
   ]
+
+  exibirCards(): void {
+    this.exibicao = 'cards'
+  }
+
+  exibirLista(): void {
+    this.exibicao = 'lista'
+  }
+
 }

@@ -4,9 +4,23 @@
   </header>
   
   <main>
-    <app-student [aluno]="listaAlunos[0]" [escola]="escola"></app-student>
-    <app-student [aluno]="listaAlunos[1]" [escola]="escola"></app-student>
-    <app-student [aluno]="listaAlunos[2]" [escola]="escola"></app-student>
+    <section>
+      <button (click)="exibirCards()">Exibir Cards</button>
+      <button (click)="exibirLista()">Exibir Lista</button>
+    </section>
+
+    <section class="cards" *ngIf="exibicao == 'cards'">
+      <app-student [aluno]="listaAlunos[0]" [escola]="escola"></app-student>
+      <app-student [aluno]="listaAlunos[1]" [escola]="escola"></app-student>
+      <app-student [aluno]="listaAlunos[2]" [escola]="escola"></app-student>
+    </section>
+
+    <section class="lista" *ngIf="exibicao == 'lista'">
+      <app-student-list
+        [titulo]="'Lista de alunos'"
+        [lista]="listaAlunos">
+      </app-student-list>
+    </section>
   </main>
 
   <footer>
