@@ -5,14 +5,25 @@
   
   <main>
     <section>
-      <button (click)="exibirCards()">Exibir Cards</button>
-      <button (click)="exibirLista()">Exibir Lista</button>
+      <div class="botoes">
+        <button (click)="trocarExibicao()">
+          Exibir {{ exibicao == 'cards' ? 'Lista' : 'Cards' }}
+        </button>
+      </div>
+      <div class="botoes">
+        <span>Filtros</span>
+        <button>Todos</button>
+        <button>Aprovados</button>
+        <button>Reprovados</button>
+      </div>
     </section>
 
     <section class="cards" *ngIf="exibicao == 'cards'">
-      <app-student [aluno]="listaAlunos[0]" [escola]="escola"></app-student>
-      <app-student [aluno]="listaAlunos[1]" [escola]="escola"></app-student>
-      <app-student [aluno]="listaAlunos[2]" [escola]="escola"></app-student>
+      <app-student
+        [aluno]="alunoAtual"
+        [escola]="escola"
+        *ngFor="let alunoAtual of listaAlunos">
+      </app-student>
     </section>
 
     <section class="lista" *ngIf="exibicao == 'lista'">

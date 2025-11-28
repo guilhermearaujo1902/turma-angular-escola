@@ -45,15 +45,24 @@ export class App {
       materias: ['Python', 'BI'],
       imagem: 'rony.png',
       situacao: false
-    }
+    },
+    {
+      nome: 'Luna',
+      matricula: 444,
+      curso: 'Design',
+      email: 'luna@proway.com',
+      materias: ['UX/UI', 'Branding'],
+      imagem: 'luna.png',
+      situacao: true
+    },
   ]
 
-  exibirCards(): void {
-    this.exibicao = 'cards'
-  }
-
-  exibirLista(): void {
-    this.exibicao = 'lista'
+  trocarExibicao(): void {
+    if (this.exibicao == 'cards') {
+      this.exibicao = 'lista'
+    } else {
+      this.exibicao = 'cards'
+    }
   }
 
 }
