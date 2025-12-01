@@ -12,9 +12,9 @@
       </div>
       <div class="botoes">
         <span>Filtros</span>
-        <button>Todos</button>
-        <button>Aprovados</button>
-        <button>Reprovados</button>
+        <button (click)="filtrarTodos()">Todos</button>
+        <button (click)="filtrarAprovados()">Aprovados</button>
+        <button (click)="filtrarReprovados()">Reprovados</button>
       </div>
     </section>
 
@@ -22,14 +22,15 @@
       <app-student
         [aluno]="alunoAtual"
         [escola]="escola"
-        *ngFor="let alunoAtual of listaAlunos">
+        *ngFor="let alunoAtual of listaAlunosFiltro">
       </app-student>
     </section>
 
     <section class="lista" *ngIf="exibicao == 'lista'">
       <app-student-list
+        (excluir)="onExcluir($event)"
         [titulo]="'Lista de alunos'"
-        [lista]="listaAlunos">
+        [lista]="listaAlunosFiltro">
       </app-student-list>
     </section>
   </main>
