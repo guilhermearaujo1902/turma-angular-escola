@@ -6,20 +6,21 @@
   <main>
     <section>
       <div class="botoes">
-        <button (click)="trocarExibicao()">
+        <button class="btn btn-primario" (click)="trocarExibicao()">
           Exibir {{ exibicao == 'cards' ? 'Lista' : 'Cards' }}
         </button>
       </div>
       <div class="botoes">
         <span>Filtros</span>
-        <button (click)="filtrarTodos()">Todos</button>
-        <button (click)="filtrarAprovados()">Aprovados</button>
-        <button (click)="filtrarReprovados()">Reprovados</button>
+        <button class="btn btn-primario" (click)="filtrarTodos()">Todos</button>
+        <button class="btn btn-primario" (click)="filtrarAprovados()">Aprovados</button>
+        <button class="btn btn-primario" (click)="filtrarReprovados()">Reprovados</button>
       </div>
     </section>
 
     <section class="cards" *ngIf="exibicao == 'cards'">
       <app-student
+        (excluir)="onExcluir($event)"
         [aluno]="alunoAtual"
         [escola]="escola"
         *ngFor="let alunoAtual of listaAlunosFiltro">

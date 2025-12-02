@@ -34,16 +34,3 @@ p {
     margin-bottom: 16px;
     gap: 8px;
 }
-
-.botoes button {
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #263766;
-    color: #fff;
-}
-.botoes button:hover {
-    background-color: #ff6200;
-}

@@ -5,6 +5,7 @@
     border-radius: 4px;
     color: #565656;
     margin-bottom: 16px;
+    position: relative;
 }
 
 .card:hover {
@@ -41,4 +42,15 @@
 
 .aprovacao.reprovado {
     background-color: #951c1c;
+}
+
+.card-btn-excluir {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.card:hover .card-btn-excluir {
+    display: block;
 }

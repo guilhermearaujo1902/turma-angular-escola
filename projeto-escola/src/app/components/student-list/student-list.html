@@ -18,8 +18,16 @@
                 <td>{{ aluno.email }}</td>
                 <td>{{ aluno.curso }}</td>
                 <td>{{ aluno.situacao ? 'Aprovado' : 'Reprovado' }}</td>
-                <td>
-                    <button (click)="excluirAluno(aluno.matricula)">Excluir</button>
+                <td class="flex flex-h-center gap-8">
+                    <button
+                        class="btn btn-sucesso">
+                        Editar
+                    </button>
+                    <button
+                        class="btn btn-alerta"
+                        (click)="excluirAluno(aluno.matricula)">
+                        Excluir
+                    </button>
                 </td>
             </tr>
         </tbody>

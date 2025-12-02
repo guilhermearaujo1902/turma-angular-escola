@@ -93,9 +93,18 @@ export class App {
   }
 
   onExcluir(matricula: number): void {
-    console.log(`No componente APP, matricula: ${matricula}`)
-    // Implementar a funcionalidade de excluir um aluno através do valor da matrícula
-    // Implementar a mesma função na visão de Cards
+    // Encontrar o index ou a posição do aluno, baseado no valor da matrícula recebida
+    // por parâmetro
+    const indexExcluir = this.listaAlunos.findIndex(aluno => aluno.matricula === matricula)
+
+    // Testar se o index é válido
+    if (indexExcluir >= 0) {
+
+      // Excluir o aluno da lista através do index
+      this.listaAlunos.splice(indexExcluir, 1)
+    }
+
+    this.filtrarTodos()
   }
 
 }
