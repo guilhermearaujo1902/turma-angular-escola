@@ -1,0 +1,33 @@
+form {
+    padding: 32px 0;
+    width: 80%;
+    margin: auto;
+}
+
+form label {
+    display: block;
+    font-size: 12px;
+    margin-top: 16px;
+}
+form input {
+    width: 100%;
+    border: solid 1px silver;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 16px;
+    color: #343434;
+    
+}
+
+.input-radio {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.input-radio label {
+    display: inline;
+    margin-right: 8px;
+}
+.input-radio input {
+    width: auto;
+}

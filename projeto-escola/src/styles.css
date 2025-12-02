@@ -10,6 +10,9 @@
 .mt-16 {
     margin-top: 16px;
 }
+.mr-16 {
+    margin-right: 16px;
+}
 .gap-8 {
     gap: 8px;
 }
@@ -28,6 +31,13 @@
 .grid {
     display: grid;
 }
+.col-1 {
+    grid-template-columns: 1fr;
+}
+.col-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
 
 
 /* Alinhamentos */
@@ -43,13 +53,19 @@
     padding: 4px 8px;
     font-size: 14px;
     cursor: pointer;
-    color: #fff;
+    color: #fff !important;
 }
 .btn-primario {
     background-color: #263766;
 }
 .btn-primario:hover {
     background-color: #ff6200;
+}
+.btn-secundario {
+    background-color: #6f7484;
+}
+.btn-secundario:hover {
+    background-color: #aeb6d0;
 }
 .btn-sucesso {
     background-color: #1a6b1a;
