@@ -6,6 +6,7 @@ import { App } from './app';
 import { Student } from './components/student/student';
 import { StudentList } from './components/student-list/student-list';
 import { StudentForm } from './components/student-form/student-form';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StudentForm } from './components/student-form/student-form';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

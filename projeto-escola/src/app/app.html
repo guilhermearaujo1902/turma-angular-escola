@@ -16,6 +16,9 @@
         <button class="btn btn-primario" (click)="filtrarAprovados()">Aprovados</button>
         <button class="btn btn-primario" (click)="filtrarReprovados()">Reprovados</button>
       </div>
+      <div class="botoes">
+        <button class="btn btn-primario" (click)="abrirFormulario()">Novo Aluno</button>
+      </div>
     </section>
 
     <section class="cards" *ngIf="exibicao == 'cards'">
@@ -35,12 +38,8 @@
       </app-student-list>
     </section>
 
-    <!--
-      Tratar a visibilidade dessa sessão para que apareça apenas depois de clicar no 
-      botão 'Novo aluno' e ao clicar no botão 'Cancelar', esconder novamente o formulário
-    -->
-    <section>
-      <app-student-form></app-student-form>
+    <section *ngIf="formularioVisivel">
+      <app-student-form (fecharForm)="fecharFormulario()"></app-student-form>
     </section>
   </main>
 

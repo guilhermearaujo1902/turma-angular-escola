@@ -16,18 +16,20 @@ form input {
     padding: 4px;
     font-size: 16px;
     color: #343434;
-    
+}
+form input:focus {
+    outline: none;
 }
 
 .input-radio {
     display: flex;
     gap: 16px;
-    align-items: center;
+    align-items: end;
 }
 .input-radio label {
     display: inline;
-    margin-right: 8px;
 }
 .input-radio input {
     width: auto;
+    margin-right: 8px;
 }

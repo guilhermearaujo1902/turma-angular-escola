@@ -4,43 +4,53 @@
 
         <div>
             <label for="matricula">Matrícula</label>
-            <input type="text" id="matricula" name="matricula">
+            <input type="text" id="matricula" name="matricula" [(ngModel)]="alunoEdicao.matricula">
         </div>
 
         <div class="grid col-2">
             <div>
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome">
+                <input type="text" id="nome" name="nome" [(ngModel)]="alunoEdicao.nome">
             </div>
     
             <div>
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" [(ngModel)]="alunoEdicao.email">
             </div>
         </div>
 
         <div class="grid col-2">
             <div>
                 <label for="curso">Curso</label>
-                <input type="text" id="curso" name="curso">
+                <input type="text" id="curso" name="curso" [(ngModel)]="alunoEdicao.curso">
             </div>
     
             <div class="input-radio">
                 <div>
-                    <input type="radio" id="aprovado" name="situacao">
-                    <label for="aprovado">Aprovado</label>
-                </div>
-    
-                <div>
-                    <input type="radio" id="reprovado" name="situacao">
-                    <label for="reprovado">Reprovado</label>
+                    <input 
+                        type="checkbox" 
+                        id="situacao" 
+                        name="situacao" 
+                        [checked]="alunoEdicao.situacao"
+                        [(ngModel)]="alunoEdicao.situacao">
+                    <label for="situacao">
+                        Aluno com cadastro Aprovado!
+                    </label>
                 </div>
             </div>
         </div>
 
         <div class="mt-16 grid col-2">
-            <input class="btn btn-primario" type="submit" value="Salvar">
-            <input class="btn btn-secundario" type="button" value="Cancelar">
+            <input
+                class="btn btn-primario"
+                type="button" value="Salvar"
+                (click)="salvar()">
+
+            <input
+                class="btn btn-secundario"
+                type="button"
+                value="Cancelar"
+                (click)="cancelar()">
         </div>
 
     </form>
