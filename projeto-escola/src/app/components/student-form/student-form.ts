@@ -10,34 +10,32 @@ import { IAluno } from '../../interfaces/IAluno';
 export class StudentForm {
 
   @Output() fecharForm: EventEmitter<void> = new EventEmitter()
+  @Output() salvar: EventEmitter<IAluno> = new EventEmitter()
 
-  @Input() aluno: IAluno = {
-    nome: '',
-    matricula: 0,
-    curso: '',
-    email: '',
-    materias: [],
-    situacao: false
-  };
+  @Input() aluno: IAluno | null = null;
 
-  alunoEdicao: IAluno = {
-    nome: '',
-    matricula: 0,
-    curso: '',
-    email: '',
-    materias: [],
-    situacao: false
-  };
+  alunoEdicao!: IAluno;
 
   // Executar assim que o componente é inicializado
   ngOnInit(): void {
     // Criando uma cópia do objeto recebido de maneira externa e atribuindo os valores
     // para o objeto interno, sem manter o vínculo entre esses objetos
-    this.alunoEdicao = {...this.aluno}
+    if (this.aluno) {
+      this.alunoEdicao = {...this.aluno}
+    } else {
+      this.alunoEdicao = {
+        nome: '',
+        matricula: -1,
+        curso: '',
+        email: '',
+        materias: [],
+        situacao: false
+      };
+    }
   }
 
-  salvar(): void {
-    console.log(this.alunoEdicao)
+  salvarForm(): void {
+    this.salvar.emit(this.alunoEdicao)
   }
 
   cancelar(): void {

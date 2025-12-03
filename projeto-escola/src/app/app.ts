@@ -19,15 +19,14 @@ export class App {
     cidade: 'Blumenau'
   }
   
-  listaAlunos: IAluno[] = []
   listaAlunosFiltro: IAluno[] = []
   formularioVisivel: boolean = false
+  alunoSelecionado: IAluno | null = null
 
   constructor(private studentService: StudentService){}
 
   ngOnInit(): void {
-    this.listaAlunos = this.studentService.getLista()
-    this.listaAlunosFiltro = this.listaAlunos
+    this.listaAlunosFiltro = this.studentService.getLista()
   }
 
   trocarExibicao(): void {
@@ -38,44 +37,29 @@ export class App {
     }
   }
 
-  filtrarAprovados(): void {
-    // Criar uma lista de alunos aprovados
-    const listaAprovados: IAluno[] = [];
-
-    // Percorrer a lista de alunos
-    this.listaAlunos.forEach( alunoAtual => {
-      // Testar a propriedade situacao
-      if (alunoAtual.situacao === true) {
-        // Adicionando na lista somente os aprovados
-        listaAprovados.push(alunoAtual)
-      }
-    });
-
-    this.listaAlunosFiltro = listaAprovados
-  }
-
-  filtrarReprovados(): void {
-    const listaReprovados: IAluno[] = this.listaAlunos.filter(aluno => aluno.situacao === false)
-    this.listaAlunosFiltro = listaReprovados
-  }
-
-  filtrarTodos(): void {
-    this.listaAlunosFiltro = this.listaAlunos
+  filtrar(filtro: string): void {
+    this.listaAlunosFiltro = this.studentService.filtrar(filtro)
   }
 
   onExcluir(matricula: number): void {
-    // Encontrar o index ou a posição do aluno, baseado no valor da matrícula recebida
-    // por parâmetro
-    const indexExcluir = this.listaAlunos.findIndex(aluno => aluno.matricula === matricula)
+    this.studentService.delete(matricula)
+  }
 
-    // Testar se o index é válido
-    if (indexExcluir >= 0) {
+  onSalvar(aluno: IAluno): void {
 
-      // Excluir o aluno da lista através do index
-      this.listaAlunos.splice(indexExcluir, 1)
+    if (aluno.matricula < 0) {
+      this.studentService.add(aluno)
+    } else {
+      this.studentService.update(aluno)
     }
 
-    this.filtrarTodos()
+    this.alunoSelecionado = null
+    this.fecharFormulario()
+  }
+
+  onEditar(alunoEditar: IAluno): void {
+    this.alunoSelecionado = alunoEditar
+    this.abrirFormulario()
   }
 
   abrirFormulario(): void {

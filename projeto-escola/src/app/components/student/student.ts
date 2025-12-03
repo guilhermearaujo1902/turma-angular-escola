@@ -10,6 +10,7 @@ import { IAluno } from '../../interfaces/IAluno';
 export class Student {
 
   @Output() excluir: EventEmitter<number> = new EventEmitter()
+  @Output() editar: EventEmitter<IAluno> = new EventEmitter()
 
   @Input() aluno!: IAluno
   @Input() escola!: any
@@ -18,6 +19,10 @@ export class Student {
 
   excluirAluno(matricula: number): void {
     this.excluir.emit(matricula)
+  }
+
+  editarAluno(): void {
+    this.editar.emit(this.aluno)
   }
 
 }

@@ -20,7 +20,8 @@
                 <td>{{ aluno.situacao ? 'Aprovado' : 'Reprovado' }}</td>
                 <td class="flex flex-h-center gap-8">
                     <button
-                        class="btn btn-sucesso">
+                        class="btn btn-sucesso"
+                        (click)="editarAluno(aluno)">
                         Editar
                     </button>
                     <button

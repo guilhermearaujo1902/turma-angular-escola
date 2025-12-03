@@ -12,18 +12,27 @@
       </div>
       <div class="botoes">
         <span>Filtros</span>
-        <button class="btn btn-primario" (click)="filtrarTodos()">Todos</button>
-        <button class="btn btn-primario" (click)="filtrarAprovados()">Aprovados</button>
-        <button class="btn btn-primario" (click)="filtrarReprovados()">Reprovados</button>
+        <button class="btn btn-primario" (click)="filtrar('todos')">Todos</button>
+        <button class="btn btn-primario" (click)="filtrar('aprovados')">Aprovados</button>
+        <button class="btn btn-primario" (click)="filtrar('reprovados')">Reprovados</button>
       </div>
       <div class="botoes">
         <button class="btn btn-primario" (click)="abrirFormulario()">Novo Aluno</button>
       </div>
     </section>
 
+    <section *ngIf="formularioVisivel">
+      <app-student-form
+        [aluno]="alunoSelecionado"
+        (fecharForm)="fecharFormulario()"
+        (salvar)="onSalvar($event)">
+      </app-student-form>
+    </section>
+
     <section class="cards" *ngIf="exibicao == 'cards'">
       <app-student
         (excluir)="onExcluir($event)"
+        (editar)="onEditar($event)"
         [aluno]="alunoAtual"
         [escola]="escola"
         *ngFor="let alunoAtual of listaAlunosFiltro">
@@ -33,14 +42,12 @@
     <section class="lista" *ngIf="exibicao == 'lista'">
       <app-student-list
         (excluir)="onExcluir($event)"
+        (editar)="onEditar($event)"
         [titulo]="'Lista de alunos'"
         [lista]="listaAlunosFiltro">
       </app-student-list>
     </section>
 
-    <section *ngIf="formularioVisivel">
-      <app-student-form (fecharForm)="fecharFormulario()"></app-student-form>
-    </section>
   </main>
 
   <footer>

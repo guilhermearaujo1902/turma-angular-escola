@@ -10,15 +10,19 @@ import { IAluno } from '../../interfaces/IAluno';
 export class StudentList {
 
   @Output() excluir: EventEmitter<number> = new EventEmitter()
+  @Output() editar: EventEmitter<IAluno> = new EventEmitter()
 
   @Input() lista: IAluno[] = [];
-
   @Input() titulo: string = '';
 
   excluirAluno(matricula: number): void {
     // Dizendo para o componente executar o evento 'excluir' e enviar para o componente 
     // externo o valor do parâmetro 'matricula'
     this.excluir.emit(matricula)
+  }
+
+  editarAluno(aluno: IAluno): void {
+    this.editar.emit(aluno)
   }
 
 }

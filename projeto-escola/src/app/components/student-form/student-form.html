@@ -2,9 +2,14 @@
     <form>
         <h2>Formulário do Aluno</h2>
 
-        <div>
+        <div *ngIf="aluno?.matricula">
             <label for="matricula">Matrícula</label>
-            <input type="text" id="matricula" name="matricula" [(ngModel)]="alunoEdicao.matricula">
+            <input
+                type="text"
+                id="matricula"
+                name="matricula"
+                [(ngModel)]="alunoEdicao.matricula"
+                readonly>
         </div>
 
         <div class="grid col-2">
@@ -44,7 +49,7 @@
             <input
                 class="btn btn-primario"
                 type="button" value="Salvar"
-                (click)="salvar()">
+                (click)="salvarForm()">
 
             <input
                 class="btn btn-secundario"
